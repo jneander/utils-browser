@@ -1,4 +1,4 @@
-export default class ClientStorage {
+export class ClientStorage {
   constructor(scope = '') {
     this.scope = scope
   }
