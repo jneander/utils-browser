@@ -1,4 +1,4 @@
-import ClientStorage from '../ClientStorage'
+import {ClientStorage} from './client-storage'
 
 describe('ClientStorage', () => {
   let clientStorage
