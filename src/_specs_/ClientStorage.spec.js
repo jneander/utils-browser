@@ -93,9 +93,9 @@ describe('ClientStorage', () => {
           deeper: true,
           data: 'yes',
           'even-deeper': {
-            nil: null
-          }
-        }
+            nil: null,
+          },
+        },
       })
       clientStorage.setData('example', object)
       expect(clientStorage.getData('example')).to.deep.equal(object)
