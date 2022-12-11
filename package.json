@@ -4,6 +4,10 @@
   "description": "Utilities for browser-based apps",
   "main": "./lib/index.js",
   "module": "./es/index.js",
+  "files": [
+    "es",
+    "lib"
+  ],
   "scripts": {
     "build": "build-lib",
     "build:production": "build-lib",
