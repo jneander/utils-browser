@@ -1,1 +1,1 @@
-export {default as ClientStorage} from './ClientStorage'
+export {default as ClientStorage} from './client-storage'
