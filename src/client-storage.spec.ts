@@ -1,7 +1,7 @@
 import {ClientStorage} from './client-storage'
 
 describe('ClientStorage', () => {
-  let clientStorage
+  let clientStorage: ClientStorage
 
   beforeEach(() => {
     clientStorage = new ClientStorage()

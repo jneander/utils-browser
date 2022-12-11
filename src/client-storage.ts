@@ -1,20 +1,22 @@
 export class ClientStorage {
+  public scope: string
+
   constructor(scope = '') {
     this.scope = scope
   }
 
-  buildKey(key) {
+  buildKey(key: string): string {
     return this.scope ? `${this.scope}:${key}` : key
   }
 
-  getData(key, defaultValue) {
+  getData<T = unknown>(key: string, defaultValue?: T): T {
     if (this.buildKey(key) in localStorage) {
       return JSON.parse(localStorage[this.buildKey(key)])
     }
     return defaultValue
   }
 
-  setData(key, value) {
+  setData(key: string, value: unknown): void {
     if (typeof value === 'undefined') {
       this.removeData(key)
     } else {
@@ -22,7 +24,7 @@ export class ClientStorage {
     }
   }
 
-  removeData(key) {
+  removeData(key: string): void {
     localStorage.removeItem(this.buildKey(key))
   }
 }
