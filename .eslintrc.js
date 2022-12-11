@@ -15,6 +15,8 @@ module.exports = {
     'prettier',
     'plugin:eslint-comments/recommended',
     'plugin:promise/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
 
   globals: {},
@@ -29,7 +31,7 @@ module.exports = {
     },
 
     {
-      files: ['./**/*.spec.js', './**/specs/**/*.js'],
+      files: ['./**/*.spec.ts', './**/specs/**/*.ts'],
 
       globals: {
         expect: 'writable',
@@ -60,14 +62,23 @@ module.exports = {
   root: true,
 
   rules: {
+    '@typescript-eslint/no-var-requires': 'off',
     'arrow-body-style': 'off',
     'eslint-comments/no-unused-disable': 'error',
-    'import/extensions': ['error', 'ignorePackages', {js: 'never'}],
+    'import/extensions': ['error', 'ignorePackages', {js: 'never', ts: 'never'}],
     'import/no-extraneous-dependencies': ['error', {devDependencies: true}],
     'no-unused-vars': ['error', {argsIgnorePattern: '^_'}],
     'prefer-arrow-callback': 'off',
     'prettier/prettier': 'error',
   },
 
-  settings: {},
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts'],
+    },
+
+    'import/resolver': {
+      typescript: {},
+    },
+  },
 }

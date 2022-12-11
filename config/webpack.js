@@ -14,7 +14,7 @@ module.exports = {
     rules: [
       {
         exclude: /node_modules/,
-        test: /\.js$/,
+        test: /\.ts$/,
         use: [
           {
             loader: 'babel-loader',
@@ -39,6 +39,8 @@ module.exports = {
                     },
                   },
                 ],
+
+                '@babel/preset-typescript',
               ],
             },
           },
@@ -62,11 +64,12 @@ module.exports = {
 
   plugins: [
     new webpack.ProvidePlugin({
-      process: 'process/browser',
+      process: 'process/browser.js',
     }),
   ],
 
   resolve: {
+    extensions: ['.ts', '.js'],
     modules: [srcPath, 'node_modules'],
   },
 
